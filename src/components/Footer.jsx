@@ -23,7 +23,7 @@ const productLinks = [
 
 const Footer = () => {
   return (
-    <footer className='bg-green-100 py-8 font-schibsted text-gray-800'>
+    <footer className='bg-green-100 pb-0 pt-8 font-schibsted text-gray-800'>
       <div className='section'>
         <div className='container-medium grid grid-cols-2 gap-8 md:px-20 lg:grid-cols-4'>
           {/* Logo Section */}
@@ -113,6 +113,12 @@ const Footer = () => {
             </ul>
           </div>
         </div>
+
+        <p className='mt-10 text-center text-sm text-gray-600'>
+          &copy; {new Date().getFullYear()} Created and completed by{' '}
+          <b>Nurudeen Lawal</b> <br />
+          Risevest Frontend Engineer Role
+        </p>
       </div>
     </footer>
   )
