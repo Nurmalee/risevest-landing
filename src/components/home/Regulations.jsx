@@ -5,7 +5,7 @@ const Regulations = () => {
       aria-labelledby='regulations-heading'>
       {/* Section heading describing the regulations */}
       <h2
-        className='text-3xl font-semibold tracking-tighter'
+        className='text-3xl font-semibold tracking-tighter dark:text-rise-green'
         id='regulations-heading'>
         How we are regulated
       </h2>

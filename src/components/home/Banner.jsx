@@ -1,21 +1,6 @@
 import { useEffect, useState } from 'react'
-import play from '../../assets/google-play-white-filled.svg'
-import apple from '../../assets/apple-white-filled.svg'
 import appDemo from '../../assets/app-demo.png'
-import AppStoreButton from './AppStoreButton'
-
-const appStores = [
-  {
-    type: 'App Store',
-    icon: apple,
-    link: '/',
-  },
-  {
-    type: 'Google Play',
-    icon: play,
-    link: '/',
-  },
-]
+import AppStoreButtons from './AppStoreButtons'
 
 const Banner = () => {
   const [isVisible, setIsVisible] = useState(false)
@@ -37,30 +22,26 @@ const Banner = () => {
           }`}>
           {/* Main Heading */}
           <h1
-            className='text-4xl font-semibold leading-tight tracking-tighter text-rise-green md:text-5xl lg:text-6xl'
+            className='text-4xl font-semibold leading-tight tracking-tighter text-rise-green md:text-5xl lg:text-6xl dark:text-white'
             id='banner-heading'>
             Dollar investments that help you{' '}
-            <span className='font-abel font-normal italic text-black'>
+            <span className='font-abel font-normal italic text-black dark:text-rise-green'>
               grow.
             </span>
           </h1>
 
           {/* Descriptive Paragraph */}
-          <p className='text-lg leading-normal tracking-tighter text-gray-600 lg:text-xl'>
+          <p className='text-lg leading-normal tracking-tighter text-gray-600 lg:text-xl dark:text-gray-300'>
             We put your money in high-quality assets that help you build wealth
             and achieve your financial goals.
           </p>
 
           {/* App Store Buttons */}
-          <div className='flex w-full flex-col items-center justify-center gap-4 sm:flex-row lg:justify-start'>
-            {appStores.map((store) => (
-              <AppStoreButton key={store.type} store={store} />
-            ))}
-          </div>
+          <AppStoreButtons />
 
           {/* Background Decorative Bubbles */}
           <div
-            className='animate-bubble absolute -top-20 left-10 h-4 w-4 rounded-full bg-rise-green opacity-30'
+            className='animate-bubble absolute -top-20 left-10 h-4 w-4 rounded-full bg-rise-green opacity-30 dark:bg-white'
             aria-hidden='true'></div>
           <div
             className='animate-bubble absolute -top-32 left-48 h-16 w-16 rounded-full bg-rise-green opacity-30'
@@ -83,7 +64,7 @@ const Banner = () => {
             className='animate-bubble absolute -bottom-3 right-2 h-16 w-16 rounded-full bg-rise-green opacity-30'
             aria-hidden='true'></div>
           <div
-            className='animate-bubble absolute bottom-0 left-14 h-8 w-8 rounded-full bg-rise-green opacity-30'
+            className='animate-bubble absolute bottom-0 left-14 h-8 w-8 rounded-full bg-rise-green opacity-30 dark:bg-white'
             aria-hidden='true'></div>
 
           <div className='animate-bubble absolute right-20 z-0 h-60 w-60 lg:left-56'>
@@ -96,8 +77,8 @@ const Banner = () => {
       </div>
 
       {/* Supporter Logos Section */}
-      <div className='border-1 relative mx-auto flex w-fit flex-col items-start rounded-lg border p-1 px-5 md:items-center'>
-        <p className='text-base leading-normal text-gray-600 lg:text-lg'>
+      <div className='border-1 relative mx-auto flex w-fit flex-col items-start rounded-lg border border-gray-600 border-opacity-20 p-1 px-5 md:items-center'>
+        <p className='text-base leading-normal text-gray-600 lg:text-lg dark:text-white'>
           We are supported by
         </p>
         <img

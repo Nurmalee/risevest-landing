@@ -40,19 +40,21 @@ const InvestmentOptions = () => {
         {/* Main section heading for accessibility */}
         <h2
           id='investment-options-heading'
-          className='text-3xl font-semibold tracking-tighter'>
+          className='text-3xl font-semibold tracking-tighter dark:text-white'>
           Asset Classes
         </h2>
 
         {/* Short description of asset classes */}
-        <p>It&apos;s your money, choose where you invest it</p>
+        <p className='dark:text-white'>
+          It&apos;s your money, choose where you invest it
+        </p>
 
         {/* Flex container for the different investment options */}
         <div className='flex flex-col gap-8 py-10 lg:flex-row'>
           {investmentOptions.map((option, index) => (
             <div
               key={index}
-              className='flex flex-1 flex-col items-center gap-12 rounded-lg border-2 border-gray-200 bg-white text-center shadow-sm hover:shadow-lg'>
+              className='flex flex-1 flex-col items-center gap-12 rounded-lg border-2 border-gray-200 bg-white text-center shadow-sm hover:shadow-lg dark:bg-gray-100'>
               {/* Image container with dynamic background color */}
               <div
                 className='relative h-32 w-full rounded-t-lg'

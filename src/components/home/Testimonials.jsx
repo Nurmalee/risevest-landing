@@ -55,7 +55,7 @@ const Testimonials = () => {
         From the people who use Rise
       </h2>
 
-      <p className='mx-auto w-full text-base tracking-tighter text-gray-800 sm:w-[80%] lg:w-[50%] lg:text-lg'>
+      <p className='mx-auto w-full text-base tracking-tighter text-gray-600 sm:w-[80%] lg:w-[50%] lg:text-lg dark:text-gray-300'>
         We serve over 80,000 amazing users. Our mission at Rise is to empower
         more people just like you to achieve your personal financial goals.
       </p>

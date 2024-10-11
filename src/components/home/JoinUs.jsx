@@ -9,14 +9,14 @@ const JoinUs = () => {
         <div className='flex flex-1 flex-col items-start justify-center gap-5 text-left sm:items-center sm:text-center lg:items-start lg:text-left'>
           <div>
             <h2
-              className='text-3xl font-semibold tracking-tighter'
+              className='text-3xl font-semibold tracking-tighter dark:text-white'
               id='join-us-heading'>
               Join The Rise Community
             </h2>
           </div>
 
           {/* Description paragraph providing context */}
-          <p className='w-full text-base tracking-tighter text-gray-600 sm:w-[80%] lg:w-[75%] lg:text-lg'>
+          <p className='w-full text-base tracking-tighter text-gray-600 sm:w-[80%] lg:w-[75%] lg:text-lg dark:text-gray-300'>
             If you want to go far, go together. Our Telegram community surrounds
             you with others who can help you along your financial journey with
             tips, support, advice, and learning. It&apos;s completely free and

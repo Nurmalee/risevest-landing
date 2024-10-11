@@ -86,20 +86,20 @@ const InvestmentFeatures = () => {
                   : 'translate-x-[-200px] opacity-0' // Odd index: animate in from left
             }`}>
             {/* Feature illustration */}
-            <div className='green-bord flex max-h-96 max-w-96 flex-1 items-center justify-center'>
+            <div className='green-bord flex max-h-80 max-w-80 flex-1 items-center justify-center'>
               <img
                 alt={`Illustration depicting: ${feature.title}`}
                 src={feature.illustration}
-                className='object-contain'
+                className={`${index % 2 === 0 ? `lg:-rotate-3` : `lg:rotate-3`} transform rounded-lg object-contain transition-transform duration-300 ${index % 2 === 0 ? `lg:hover:-rotate-6` : `lg:hover:rotate-6`} `}
               />
             </div>
 
             {/* Feature text content: title, description, and call-to-action */}
             <div className='set-paragraph flex flex-1 flex-col'>
-              <h3 className='text-2xl font-semibold tracking-tighter'>
+              <h3 className='text-2xl font-semibold tracking-tighter dark:text-white'>
                 {feature.title}
               </h3>
-              <p className='w-full text-base tracking-tighter text-gray-600 lg:text-lg'>
+              <p className='w-full text-base tracking-tighter text-gray-600 lg:text-lg dark:text-gray-300'>
                 {feature.description}
               </p>
 

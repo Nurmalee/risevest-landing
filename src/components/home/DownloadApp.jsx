@@ -1,18 +1,5 @@
-import play from '../../assets/google-play-white-filled.svg'
-import apple from '../../assets/apple-white-filled.svg'
 import appDemo from '../../assets/app-demo.png'
-import AppStoreButton from './AppStoreButton'
-
-const appStores = [
-  {
-    type: 'App Store',
-    icon: apple,
-  },
-  {
-    type: 'Google Play',
-    icon: play,
-  },
-]
+import AppStoreButtons from './AppStoreButtons'
 
 export const DownloadApp = () => {
   return (
@@ -40,11 +27,7 @@ export const DownloadApp = () => {
             </p>
 
             {/* App Store Buttons */}
-            <div className='flex w-full flex-col items-center justify-center gap-4 sm:flex-row lg:justify-start'>
-              {appStores.map((store) => (
-                <AppStoreButton key={store.type} store={store} />
-              ))}
-            </div>
+            <AppStoreButtons />
           </div>
 
           {/* Right Section: App Demo Image */}
