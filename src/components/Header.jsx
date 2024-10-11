@@ -115,7 +115,7 @@ const Header = () => {
       <div
         className={`fixed right-0 top-0 h-screen w-2/3 transform bg-white shadow-lg ${
           isMobileMenuOpen ? 'translate-x-0' : 'translate-x-full'
-        } z-50 transition-transform duration-300 ease-in-out md:hidden`}>
+        } z-50 transition-transform duration-300 ease-in-out lg:hidden`}>
         <button
           onClick={toggleMobileMenu}
           className='absolute right-4 top-4 text-gray-700'>
