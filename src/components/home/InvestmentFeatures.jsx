@@ -52,14 +52,14 @@ const InvestmentFeatures = () => {
       }
     )
 
-    featureRefs.current.forEach((feature) => {
-      observer.observe(feature)
+    featureRefs?.current?.forEach((feature) => {
+      if (feature) observer?.observe(feature)
     })
 
     return () => {
       // eslint-disable-next-line react-hooks/exhaustive-deps
-      featureRefs.current.forEach((feature) => {
-        observer.unobserve(feature)
+      featureRefs?.current?.forEach((feature) => {
+        if (feature) observer?.unobserve(feature)
       })
     }
   }, [visibleFeatures])
@@ -99,7 +99,7 @@ const InvestmentFeatures = () => {
               <h3 className='text-2xl font-semibold tracking-tighter dark:text-white'>
                 {feature.title}
               </h3>
-              <p className='w-full text-base tracking-tighter text-gray-600 lg:text-lg dark:text-gray-300'>
+              <p className='w-full text-base tracking-tighter text-gray-600 dark:text-gray-300 lg:text-lg'>
                 {feature.description}
               </p>
 
