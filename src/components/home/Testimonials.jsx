@@ -7,7 +7,7 @@ const testimonials = [
     image:
       'https://nurudeenlawal-portfolio.vercel.app/_next/image?url=https%3A%2F%2Favatars.githubusercontent.com%2Fu%2F70635657%3Fv%3D4&w=128&q=75',
     quote:
-      'TInvesting with Rise has been a game-changer for me. As someone who doesn’t have a deep understanding of the stock market, Rise made it easy for me to grow my wealth. Their expert team and diversified investment options give me confidence that my money is in good hands. I love that I can track my investments anytime, and their customer support has always been top-notch. With Rise, I feel empowered to reach my financial goals without the stress of managing everything on my own.',
+      'Investing with Rise has been a game-changer for me. As someone who doesn’t have a deep understanding of the stock market, Rise made it easy for me to grow my wealth. Their expert team and diversified investment options give me confidence that my money is in good hands. I love that I can track my investments anytime, and their customer support has always been top-notch. With Rise, I feel empowered to reach my financial goals without the stress of managing everything on my own.',
   },
   {
     name: 'Candice Snapshot',
@@ -23,14 +23,14 @@ const testimonials = [
     image:
       'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcROoAcrf9NekztDBw0ifEhKUlNxsloMCjtfx9tqywJ4Rn0KOL3htD5Iol0PfsQJf3FyUNSYzn5hyYQ4Cvw5AvkGlBA729LImjysYDz0jw',
     quote:
-      "I choose Rise because of the leadership, wealth of knowledge and the people who support them. I invest in rise in order to protect my savings and investment from being depleted by devaluation and inflation as that's an all time high in Nigeria",
+      'I choose Rise because of the leadership, wealth of knowledge, and the people who support them. I invest in Rise to protect my savings and investments from being depleted by devaluation and inflation, which are at an all-time high in Nigeria.',
   },
 ]
 
 const Testimonials = () => {
   const [currentIndex, setCurrentIndex] = useState(0)
 
-  // Auto-slide effect
+  // Auto-slide effect for testimonials
   useEffect(() => {
     const timer = setTimeout(() => {
       setCurrentIndex((prevIndex) => (prevIndex + 1) % testimonials.length)
@@ -38,6 +38,7 @@ const Testimonials = () => {
     return () => clearTimeout(timer)
   }, [currentIndex])
 
+  // Handlers for manual slider controls
   const nextSlide = () => {
     setCurrentIndex((currentIndex + 1) % testimonials.length)
   }
@@ -56,12 +57,13 @@ const Testimonials = () => {
 
       <p className='mx-auto w-full text-base tracking-tighter text-gray-800 sm:w-[80%] lg:w-[50%] lg:text-lg'>
         We serve over 80,000 amazing users. Our mission at Rise is to empower
-        more people jsut like you to achieve your personal financial goals
+        more people just like you to achieve your personal financial goals.
       </p>
 
+      {/* Testimonial section with slider functionality */}
       <div className='mx-auto mt-10 w-full max-w-3xl rounded-lg bg-white px-3 py-8 shadow-lg'>
         <div className='relative'>
-          {/* Testimonial */}
+          {/* Testimonial content */}
           <div className='set-paragraph flex flex-col space-y-4 px-10'>
             <p className='text-sm text-gray-700'>
               {testimonials[currentIndex].quote}
@@ -69,9 +71,9 @@ const Testimonials = () => {
             <div className='flex gap-2'>
               <div>
                 <img
-                  src={testimonials[currentIndex].image}
-                  alt={testimonials[currentIndex].name}
+                  alt={`${testimonials[currentIndex].name}'s profile`}
                   className='mx-auto h-10 w-10 rounded-full shadow-lg'
+                  src={testimonials[currentIndex].image}
                 />
               </div>
 
@@ -86,27 +88,30 @@ const Testimonials = () => {
             </div>
           </div>
 
-          {/* Slider Controls */}
+          {/* Slider Controls for navigation */}
           <div className='absolute inset-0 flex items-center justify-between'>
             <button
-              onClick={prevSlide}
-              className='rounded-full p-2 text-3xl text-black hover:bg-gray-200 focus:outline-none'>
+              className='rounded-full p-2 text-3xl text-black hover:bg-gray-200 focus:outline-none'
+              aria-label='Previous Testimonial'
+              onClick={prevSlide}>
               &#8249;
             </button>
             <button
-              onClick={nextSlide}
-              className='rounded-full p-2 text-3xl text-black hover:bg-gray-200 focus:outline-none'>
+              className='rounded-full p-2 text-3xl text-black hover:bg-gray-200 focus:outline-none'
+              aria-label='Next Testimonial'
+              onClick={nextSlide}>
               &#8250;
             </button>
           </div>
         </div>
 
-        {/* Indicator dots */}
+        {/* Dots to indicate current testimonial */}
         <div className='mt-4 flex justify-center gap-2'>
           {testimonials.map((_, idx) => (
             <div
               key={idx}
               onClick={() => setCurrentIndex(idx)}
+              aria-label={`Go to testimonial ${idx + 1}`}
               className={`h-3 w-3 cursor-pointer rounded-full ${
                 idx === currentIndex ? 'bg-rise-green' : 'bg-gray-300'
               }`}

@@ -32,29 +32,39 @@ const investmentFeatures = [
 
 const InvestmentFeatures = () => {
   return (
-    <section className='section'>
+    <section className='section' aria-labelledby='investment-features-heading'>
       <div className='container-normal flex flex-col gap-8 md:gap-10 lg:gap-2'>
+        {/* Section heading for accessibility */}
+        <h2 id='investment-features-heading' className='sr-only'>
+          Investment Features of Rise
+        </h2>
+
+        {/* Feature list mapping */}
         {investmentFeatures.map((feature, index) => (
           <div
             key={index}
             className='flex flex-col items-center gap-2 lg:flex-row lg:gap-28 lg:odd:flex-row-reverse'>
+            {/* Feature illustration */}
             <div className='green-bord flex max-h-96 max-w-96 flex-1 items-center justify-center'>
               <img
+                alt={`Illustration depicting: ${feature.title}`}
                 src={feature.illustration}
                 className='object-contain'
-                alt={feature.title}
               />
             </div>
 
+            {/* Feature text content: title, description, and call-to-action */}
             <div className='set-paragraph flex flex-1 flex-col'>
-              <h2 className='text-2xl font-semibold tracking-tighter'>
+              <h3 className='text-2xl font-semibold tracking-tighter'>
                 {feature.title}
-              </h2>
+              </h3>
               <p className='w-full text-base tracking-tighter text-gray-600 lg:text-lg'>
                 {feature.description}
               </p>
 
-              <button className='mt-5 text-rise-green'>
+              <button
+                className='mt-5 text-rise-green'
+                aria-label={`Start investing in ${feature.title}`}>
                 Start Investing Now &#10170;
               </button>
             </div>

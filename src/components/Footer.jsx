@@ -25,18 +25,19 @@ const Footer = () => {
   return (
     <footer className='bg-green-100 py-8 font-schibsted text-gray-800'>
       <div className='section'>
-        <div className='container-medium grid gap-8 sm:grid-cols-2 md:px-20 lg:grid-cols-4'>
+        <div className='container-medium grid grid-cols-2 gap-8 md:px-20 lg:grid-cols-4'>
           {/* Logo Section */}
           <div>
-            <h2 className='sr-only'>Rise Logo</h2>
-            <Link to='/'>
+            <Link to='/' aria-label='Go to homepage'>
               <img src={riseLogo} className='h-14 w-14' alt='Rise logo' />
             </Link>
 
             <ul className='mt-4 space-y-2 text-sm text-gray-600'>
               {links.map((link, index) => (
                 <li key={index}>
-                  <Link to={link.path}>{link.name}</Link>
+                  <Link to={link.path} aria-label={link.name}>
+                    {link.name}
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -48,8 +49,14 @@ const Footer = () => {
             <ul className='mt-4 space-y-2 text-sm text-gray-600'>
               {exploreLinks.map((link, index) => (
                 <li key={index}>
-                  <Link to={link.path} className='flex items-center'>
-                    {link.name} <span className='ml-1'>↗</span>
+                  <Link
+                    to={link.path}
+                    className='flex items-center'
+                    aria-label={link.name}>
+                    {link.name}{' '}
+                    <span className='ml-1' aria-hidden='true'>
+                      ↗
+                    </span>
                   </Link>
                 </li>
               ))}
@@ -62,7 +69,9 @@ const Footer = () => {
             <ul className='mt-4 space-y-2 text-sm text-gray-600'>
               {productLinks.map((link, index) => (
                 <li key={index}>
-                  <Link to={link.path}>{link.name}</Link>
+                  <Link to={link.path} aria-label={link.name}>
+                    {link.name}
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -73,21 +82,33 @@ const Footer = () => {
             <h2 className='text-lg font-semibold'>Contact Us</h2>
             <ul className='mt-4 space-y-2 text-sm text-gray-600'>
               <li>
-                <a href='tel:+08164800735'>0816 480 0735 ↗</a>
+                <a
+                  href='tel:+08164800735'
+                  aria-label='Call us at 0816 480 0735'>
+                  0816 480 0735 ↗
+                </a>
               </li>
               <li>
-                <a href='mailto:lawalnurudeenfocus@gmail.com'>
+                <a
+                  href='mailto:lawalnurudeenfocus@gmail.com'
+                  aria-label='Email us at hello@rise.capital'>
                   hello@rise.capital ↗
                 </a>
               </li>
               <li>
-                <a href='#'>Newsletter ↗</a>
+                <a href='#' aria-label='Subscribe to our newsletter'>
+                  Newsletter ↗
+                </a>
               </li>
               <li>
-                <a href='#'>Instagram ↗</a>
+                <a href='#' aria-label='Follow us on Instagram'>
+                  Instagram ↗
+                </a>
               </li>
               <li>
-                <a href='#'>Twitter ↗</a>
+                <a href='#' aria-label='Follow us on Twitter'>
+                  Twitter ↗
+                </a>
               </li>
             </ul>
           </div>
