@@ -23,7 +23,7 @@ const Banner = () => {
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsVisible(true)
-    }, 350)
+    }, 150)
     return () => clearTimeout(timer)
   }, [])
 
@@ -105,9 +105,9 @@ const Banner = () => {
           alt='Logos of partner companies supporting Rise'
         />
 
-        <span className='absolute -right-2 -top-2 flex h-5 w-5'>
+        <span className='absolute -right-2 -top-2 flex h-4 w-4'>
           <span className='absolute inline-flex h-full w-full animate-ping rounded-full bg-sky-400 opacity-75'></span>
-          <span className='relative inline-flex h-5 w-5 rounded-full bg-rise-green'></span>
+          <span className='relative inline-flex h-4 w-4 rounded-full bg-rise-green'></span>
         </span>
       </div>
     </section>

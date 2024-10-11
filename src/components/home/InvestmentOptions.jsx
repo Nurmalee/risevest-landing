@@ -55,7 +55,7 @@ const InvestmentOptions = () => {
               className='flex flex-1 flex-col items-center gap-12 rounded-lg border-2 border-gray-200 bg-white text-center shadow-sm hover:shadow-lg'>
               {/* Image container with dynamic background color */}
               <div
-                className='relative h-40 w-full rounded-t-lg'
+                className='relative h-32 w-full rounded-t-lg'
                 style={{ background: option.background }}>
                 {/* Icon in a centered circular container */}
                 <div className='absolute -bottom-16 left-1/2 z-10 mb-4 flex h-24 w-24 -translate-x-1/2 transform items-center justify-center rounded-full bg-white'>
