@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 import { Link } from 'react-router-dom'
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 
 import hamburgerIcon from '../assets/hamburger.svg'
 import riseLogo from '/rise.svg'
@@ -41,10 +41,31 @@ const Header = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const [activeLink, setActiveLink] = useState('Home')
   const [darkMode, setDarkMode] = useState(false)
+  const mobileMenuRef = useRef(null)
 
-  const toggleMobileMenu = () => {
-    setIsMobileMenuOpen(!isMobileMenuOpen)
-  }
+  const toggleMobileMenu = () => setIsMobileMenuOpen(!isMobileMenuOpen)
+
+  // Close mobile menu on outside click
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (
+        mobileMenuRef.current &&
+        !mobileMenuRef.current.contains(event.target)
+      ) {
+        setIsMobileMenuOpen(false)
+      }
+    }
+
+    if (isMobileMenuOpen) {
+      document.addEventListener('mousedown', handleClickOutside)
+    } else {
+      document.removeEventListener('mousedown', handleClickOutside)
+    }
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside)
+    }
+  }, [isMobileMenuOpen])
 
   useEffect(() => {
     const savedMode = localStorage.getItem('darkMode')
@@ -115,7 +136,8 @@ const Header = () => {
       <div
         className={`fixed right-0 top-0 h-screen w-2/3 transform bg-white shadow-lg ${
           isMobileMenuOpen ? 'translate-x-0' : 'translate-x-full'
-        } z-50 transition-transform duration-300 ease-in-out lg:hidden`}>
+        } z-50 transition-transform duration-300 ease-in-out lg:hidden`}
+        ref={mobileMenuRef}>
         <button
           onClick={toggleMobileMenu}
           className='absolute right-4 top-4 text-gray-700'>
