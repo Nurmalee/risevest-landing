@@ -24,6 +24,28 @@ a:hover {
   text-decoration-line: underline;
 }
 
+@keyframes bubble {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.animate-bubble {
+  animation: bubble 3s infinite ease-in-out;
+}
+
+.transition-opacity {
+  transition:
+    opacity 0.5s ease-in-out,
+    transform 0.5s ease-in-out;
+}
+
 @layer utilities {
   .section {
     @apply relative mx-auto w-full max-w-[85rem] overflow-hidden p-8 font-schibsted;
