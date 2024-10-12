@@ -67,32 +67,25 @@ const Header = () => {
     }
   }, [isMobileMenuOpen])
 
-  useEffect(() => {
-    const savedMode = localStorage.getItem('darkMode')
-    if (savedMode === 'true') {
-      setDarkMode(true)
-      document.documentElement.classList.add('dark')
-      document.body.style.backgroundColor = '#1a202c'
-    } else {
-      document.documentElement.classList.remove('dark')
-      document.body.style.backgroundColor = '#ffffff'
-    }
-  }, [])
+  const toggleClass = (isDark) => {
+    document.documentElement.classList.toggle('dark', isDark)
+    document.body.style.backgroundColor = isDark ? '#1a202c' : '#ffffff'
+  }
 
   const toggleDarkMode = () => {
     setDarkMode((prevMode) => {
       const newMode = !prevMode
       localStorage.setItem('darkMode', newMode)
-      if (newMode) {
-        document.documentElement.classList.add('dark')
-        document.body.style.backgroundColor = '#1a202c'
-      } else {
-        document.documentElement.classList.remove('dark')
-        document.body.style.backgroundColor = '#ffffff'
-      }
+      toggleClass(newMode)
       return newMode
     })
   }
+
+  useEffect(() => {
+    const savedMode = localStorage.getItem('darkMode') === 'true'
+    setDarkMode(savedMode)
+    toggleClass(savedMode)
+  }, [])
 
   return (
     <header className='fixed z-30 w-full bg-opacity-50 px-8 py-2 backdrop-blur-lg'>
@@ -111,7 +104,9 @@ const Header = () => {
               }`}
               onClick={() => setActiveLink(link.name)}
               key={link.name}>
-              <Link to={link.url}>{link.name}</Link>
+              <Link className='hover:no-underline' to={link.url}>
+                {link.name}
+              </Link>
 
               {activeLink === link.name && (
                 <span className='absolute bottom-[-10px] left-0 right-0 mx-auto h-[5px] w-[5px] rounded-full bg-rise-green dark:bg-white'></span>
@@ -139,8 +134,8 @@ const Header = () => {
         } z-50 transition-transform duration-300 ease-in-out lg:hidden`}
         ref={mobileMenuRef}>
         <button
-          onClick={toggleMobileMenu}
-          className='absolute right-4 top-4 text-gray-700'>
+          className='absolute right-4 top-4 text-gray-700'
+          onClick={toggleMobileMenu}>
           ✕
         </button>
 

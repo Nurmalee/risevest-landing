@@ -17,7 +17,7 @@ const AppStoreButtons = () => {
     <div className='flex w-full flex-col items-center justify-center gap-4 sm:flex-row lg:justify-start'>
       {appStores.map((store) => (
         <a
-          className='flex w-full items-center justify-center gap-2 rounded-lg bg-[#2D2D2D] px-6 py-2 text-white hover:no-underline md:w-auto dark:bg-rise-green'
+          className='flex w-full cursor-pointer items-center justify-center gap-2 rounded-lg bg-[#2D2D2D] px-6 py-2 text-white hover:no-underline dark:bg-rise-green md:w-auto'
           aria-label={`Download on the ${store.type}`}
           href={store.link}
           key={store.type}>
